@@ -49,6 +49,9 @@ const Home = () => {
                 </div>
                 <div className={homestyle.data}>
                     <img src={logo} alt="logo" className={homestyle.logo} />
+                    <div className={homestyle.newData}>
+
+                   
                     <p className={homestyle.details}>Your podcast <br />
                         will no longer<br />
                         be just a hobby
@@ -56,6 +59,7 @@ const Home = () => {
                     <p className={homestyle.subtitle}>Supercharge Your Distribution <br />
                         using your AI assistant!
                     </p>
+                    </div>
                 </div>
             </div>
             <div className={homestyle.right}>

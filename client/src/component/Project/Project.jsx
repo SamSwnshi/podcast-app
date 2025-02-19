@@ -47,6 +47,7 @@ const Project = () => {
         try {
             const response = await api.post("/api/projects/create", { name: projectName });
             if (response.status === 201 || response.status === 200) {
+                alert("Project created successfully")
                 setSuccess("Project created successfully");
                 setProjectName("");
                 setModal(false);

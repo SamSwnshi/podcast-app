@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
-
 import cloudUpload from '../../assets/cloud_upload.png';
 import feed from "../../assets/image 1.png";
 import youtube from "../../assets/image 2.png";
 import update from "../../assets/Vector.png";
 import cross from "../../assets/close-large-line.png";
 import logout from "../../assets/logout-box-r-line.png";
-import notification from "../../assets/notification-line.png";
 import home from "../../assets/home.png";
+import notification from "../../assets/notification-line.png";
 import uploadRight from "./UploadRight.module.css";
 import api from '../../config/api';
 import { useNavigate } from 'react-router-dom';
-
 
 const UploadRight = () => {
     const data = [
@@ -31,10 +29,11 @@ const UploadRight = () => {
             image: update,
         },
     ];
-    const navigate = useNavigate();
 
+    const navigate = useNavigate();
     const [modal, setModal] = useState(false);
     const [formData, setFormData] = useState({ name: '', transcript: '' });
+    const [uploadSuccess, setUploadSuccess] = useState(false);
 
     const handleModal = () => {
         setModal(!modal);
@@ -45,7 +44,8 @@ const UploadRight = () => {
             const response = await api.post('/api/youtube/create', formData);
             console.log('Upload successful:', response.data);
             alert('Upload successful!');
-            handleModal(); 
+            setUploadSuccess(true);
+            handleModal();
         } catch (error) {
             console.error('Upload failed:', error);
             alert('Upload failed. Please try again.');
@@ -57,16 +57,16 @@ const UploadRight = () => {
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleLogout = async()=>{
-        try{
-             await api.post("/api/logout")
-             localStorage.removeItem('token');
-             navigate("/")
-        }catch(error){
+    const handleLogout = async () => {
+        try {
+            await api.post("/api/logout");
+            localStorage.removeItem('token');
+            navigate("/");
+        } catch (error) {
             console.error('Logout failed:', error);
             alert('Logout failed. Please try again.');
         }
-    }
+    };
 
     return (
         <div>
@@ -82,24 +82,35 @@ const UploadRight = () => {
                             <img src={logout} alt="logout" className={uploadRight.notification} onClick={handleLogout} />
                         </div>
                     </div>
-                    <h1 className={uploadRight.addPodcast}>Add Podcast</h1>
-                    <div className={uploadRight.dataMap}>
-                        {data.map((items, idx) => (
-                            <div key={idx} className={uploadRight.divs}>
-                                <div className={uploadRight.details}>
-                                    <h1 className={uploadRight.heading}>{items.heading}</h1>
-                                    <p className={uploadRight.subheading}>{items.subheading}</p>
-                                </div>
-                                <img src={items.image} alt={items.heading} className={uploadRight.icons} onClick={handleModal} />
+                    {!uploadSuccess ? (
+                        <div>
+                            <h1 className={uploadRight.addPodcast}>Add Podcast</h1>
+                            <div className={uploadRight.dataMap}>
+                                {data.map((items, idx) => (
+                                    <div key={idx} className={uploadRight.divs}>
+                                        <div className={uploadRight.details}>
+                                            <h1 className={uploadRight.heading}>{items.heading}</h1>
+                                            <p className={uploadRight.subheading}>{items.subheading}</p>
+                                        </div>
+                                        <img
+                                            src={items.image}
+                                            alt={items.heading}
+                                            className={uploadRight.icons}
+                                            onClick={handleModal}
+                                        />
+                                    </div>
+                                ))}
                             </div>
-                        ))}
-                    </div>
-                    <div className={uploadRight.uploadingData}>
-                        <img src={cloudUpload} alt="cloud upload" className={uploadRight.cloudPhoto} />
-                        <p className={uploadRight.para1}>Select a file or drag and drop here (Podcast Media or Transcription Text)</p>
-                        <p className={uploadRight.para2}>MP4, MOV, MP3, WAV, PDF, DOCX or TXT file</p>
-                        <button onClick={handleModal} className={uploadRight.selectFile}>Select File</button>
-                    </div>
+                            <div className={uploadRight.uploadingData}>
+                                <img src={cloudUpload} alt="cloud upload" className={uploadRight.cloudPhoto} />
+                                <p className={uploadRight.para1}>Select a file or drag and drop here (Podcast Media or Transcription Text)</p>
+                                <p className={uploadRight.para2}>MP4, MOV, MP3, WAV, PDF, DOCX or TXT file</p>
+                                <button onClick={handleModal} className={uploadRight.selectFile}>Select File</button>
+                            </div>
+                        </div>
+                    ) : (
+                        navigate("/transcript")
+                    )}
                 </div>
             </div>
             {modal && (
