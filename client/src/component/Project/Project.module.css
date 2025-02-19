@@ -1,7 +1,10 @@
+/* Project.module.css */
+
 .container {
   width: 100%;
   /* height: 100vh; */
 }
+
 .header {
   display: flex;
   align-items: center;
@@ -9,6 +12,7 @@
   margin-left: 101.33px;
   margin-top: 71px;
 }
+
 .icons {
   display: flex;
   align-items: center;
@@ -18,10 +22,12 @@
   height: 54px;
   cursor: pointer;
 }
+
 .mainImg {
   width: 442.5px;
-  height: 296.91;
+  height: 296.91px;
 }
+
 .add {
   width: 35px;
   height: 35px;
@@ -29,6 +35,7 @@
   border-radius: 50%;
   border: transparent;
 }
+
 .heading {
   font-weight: 700;
   font-size: 60.26px;
@@ -36,6 +43,7 @@
   letter-spacing: 0%;
   color: #7e22ce;
 }
+
 .lorem {
   font-weight: 400;
   font-size: 22.99px;
@@ -44,6 +52,7 @@
   text-align: center;
   color: #838383;
 }
+
 .details {
   width: 1113.97px;
   height: 623.94px;
@@ -52,6 +61,7 @@
   align-items: center;
   margin: auto;
 }
+
 .buttonTag {
   width: 350px;
   height: 68px;
@@ -68,6 +78,7 @@
   color: #f8f8f8;
   cursor: pointer;
 }
+
 .modalOverlay {
   position: fixed;
   top: 0;
@@ -81,26 +92,29 @@
   flex-direction: column;
   z-index: 1000;
 }
+
 .modalContent {
   border-radius: 33px;
   background: white;
   padding: 20px;
-  width: 1318px;
-  height: 459px;
+  width: 600px;
+  height: 300px;
   border-radius: 10px;
   text-align: center;
   display: flex;
   flex-direction: column;
-justify-content: center;
+  justify-content: center;
 }
+
 .modalContent input {
   width: 90%;
-  height: 70%;
+  height: 40px; /* Adjusted height for better spacing */
   padding: 10px;
   margin-top: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+
 .modalContent button {
   margin: 10px;
   padding: 10px 20px;
@@ -108,12 +122,11 @@ justify-content: center;
   cursor: pointer;
   border-radius: 5px;
   font-size: 16px;
- margin-top: 50px;
- 
+  margin-top: 20px; /* Added margin for spacing */
 }
+
 .modalContent button:first-child {
   color: red;
-  margin-left: 1020px;
 }
 
 .modalContent button:last-child {
@@ -121,14 +134,139 @@ justify-content: center;
   color: white;
 }
 
-.modalContent h1{
+.modalContent h1 {
   font-size: 40px;
   text-align: start;
   margin-left: 50px;
 }
-.modalContent label{
+
+.modalContent label {
   display: flex;
   margin-left: 52px;
   font-size: 20px;
   margin-top: -10px;
+}
+
+.buttonDiv {
+  display: flex;
+  justify-content: end;
+  margin-right: 45px;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+  text-align: left;
+  margin-left: 52px;
+}
+
+.success {
+  color: green;
+  margin-top: 10px;
+  text-align: left;
+  margin-left: 52px;
+}
+
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 2s linear infinite;
+  margin-left: 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.createButton {
+  position: relative;
+}
+
+.createButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.createButton .loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.projectCard {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.projectCard h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.projectCard p {
+  font-size: 18px;
+  color: #555;
+}
+
+.projectCountCard {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.projectCountCard h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.projectCountCard p {
+  font-size: 18px;
+  color: #555;
+}
+
+.projectsSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.projectsHeader {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.projectsHeader h1 {
+  font-size: 40px;
+  color: #7e22ce;
+}
+
+.projectsHeader button {
+  width: 200px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21.3px;
+  letter-spacing: 0%;
+  border-radius: 7.89px;
+  border: transparent;
+  background: #211935;
+  color: #f8f8f8;
+  cursor: pointer;
 }

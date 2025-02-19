@@ -3,9 +3,8 @@ import { UserContext } from '../context/user.context';
 import { useNavigate } from 'react-router-dom';
 const Userauth = ({ children }) => {
     const { user } = useContext(UserContext);
-    // const [loading,setLoading] = useState(true);
-    const token = localStorage.getItem("token");
     const navigate = useNavigate();
+    const token = localStorage.getItem("token");
 
     useEffect(() => {
         if (!token) {
@@ -14,7 +13,10 @@ const Userauth = ({ children }) => {
         if (!user) {
             navigate("/")
         }
-    }, [])
+    }, [token, user, navigate])
+    if (!token || !user) {
+        return null; 
+    }
     return (
         <>
             {children}
