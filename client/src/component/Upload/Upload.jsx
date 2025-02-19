@@ -10,7 +10,11 @@ import cloudUpload from '../../assets/cloud_upload.png';
 import feed from "../../assets/image 1.png";
 import youtube from "../../assets/image 2.png";
 import update from "../../assets/Vector.png";
-import cross from "../../assets/close-large-line.png"
+import cross from "../../assets/close-large-line.png";
+import logout from "../../assets/logout-box-r-line.png";
+import notification from "../../assets/notification-line.png";
+import home from "../../assets/home.png";
+import profile from "../../assets/profile.png"
 const Upload = () => {
     const data = [
         {
@@ -37,25 +41,50 @@ const Upload = () => {
     const handleModal = () => {
         setModal(!modal);
     }
+    const handleUpload = () => {
+        setModal(!modal)
+    }
     return (
         <div className={upload.mainContainer}>
             <div className={upload.left}>
                 <div>
-                    <img src={icnos} alt="icon" />
+                    <div className={upload.leftImageDiv}>
+                        <img src={icnos} alt="icon" className={upload.leftIcon} />
+                    </div>
+                    <div className={upload.leftContent}>
+                        <div className={upload.leftData}><img src={add} alt="Plus" className={upload.leftIconsData} />Add your Podcast(s)</div>
+                        <div className={upload.leftData}><img src={pencil} alt="Create" className={upload.leftIconsData} />Create & Repurpose</div>
+                        <div className={upload.leftData}><img src={widget} alt="Widget" className={upload.leftIconsData} />Podcast Widget</div>
+                        <div className={upload.leftData}><img src={diamond} alt="Upgrade" className={upload.leftIconsData} />Upgrade</div>
+                    </div>
                 </div>
-                <div>
-                    <div><img src={add} alt="Plus" />Add your Podcast(s)</div>
-                    <div><img src={pencil} alt="Create" />Create & Repurpose</div>
-                    <div><img src={widget} alt="Widget" />Podcast Widget</div>
-                    <div><img src={diamond} alt="Upgrade" />Upgrade</div>
-                </div>
+
                 <hr />
-                <div>
-                    <img src={setting} alt="Help" /> Help
+                <div className={upload.leftDownDiv}>
+                    <div className={upload.leftHelp}>
+                        <img src={setting} alt="Help" className={upload.leftIconsData}/> Help
+                    </div>
+                    <hr className={upload.hrline}/>
+                    <div className={upload.settingContainer}>
+                        <div><img src={profile} alt="Profile" /></div>
+                        <div>
+                            <p>UserName</p>
+                            <p>test@gmail.com</p>
+                        </div>
+                    </div>
                 </div>
-                <hr />
             </div>
             <div className={upload.right}>
+                <div className={upload.headingHome}>
+                    <div className={upload.arrow}>
+                        <img src={home} alt="home" className={upload.homeIcon} />
+                        <p className={upload.headingHomeSample}>Home Page / Sample Project / <span className={upload.headingHomeSpan}>Add your podcast</span></p>
+                    </div>
+                    <div className={upload.groupIcon}>
+                        <img src={notification} alt="notification" className={upload.notification} />
+                        <img src={logout} alt="logout" className={upload.notification} />
+                    </div>
+                </div>
                 <h1 className={upload.addPodcast}>Add Podcast</h1>
                 <div className={upload.dataMap}>
                     {data.map((items, idx) => (
@@ -85,7 +114,7 @@ const Upload = () => {
                                 <h1 className={upload.headerHeading}>Upload from Youtube</h1>
                             </div>
                             <div onClick={handleModal} className={upload}>
-                               <img src={cross} alt="cross" className={upload.cross} />
+                                <img src={cross} alt="cross" className={upload.cross} />
                             </div>
                         </div>
                         <div className={upload.formInput}>
@@ -94,10 +123,10 @@ const Upload = () => {
                         </div>
                         <div className={upload.formInput}>
                             <label className={upload.name}>Transcript</label>
-                            <textarea type="text" className={upload.inputTextarea}/>
+                            <textarea type="text" className={upload.inputTextarea} />
                         </div>
                         <div className={upload.uploadDiv}>
-                            <button className={upload.uploadButton}>Upload</button>
+                            <button className={upload.uploadButton} onClick={handleUpload}>Upload</button>
                         </div>
                     </div>
                 </div>
