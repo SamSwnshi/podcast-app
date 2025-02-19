@@ -19,3 +19,12 @@ export const createProject = async(req,res) =>{
         res.status(500).json({ message: "Server error", error });
     }
 }
+
+export const getAllProject = async (req, res) => {
+    try {
+        const projects = await Project.find(); 
+        res.status(200).json(projects);
+    } catch (error) {
+        res.status(500).json({ message: "Server error", error });
+    }
+};
