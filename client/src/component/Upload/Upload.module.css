@@ -2,6 +2,10 @@
   display: flex;
   height: 100vh;
 }
+.mainContent{
+  display: flex;
+  flex-direction: column;
+}
 .left {
   width: 442.65px;
   gap: 50px;

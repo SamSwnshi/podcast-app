@@ -62,6 +62,7 @@ const Project = () => {
             setLoading(false);
         }
     };
+    
 
     return (
         <div className={project.container}>

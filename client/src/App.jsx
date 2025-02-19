@@ -7,6 +7,7 @@ import Upload from './component/Upload/Upload';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Userauth from './auth/Userauth';
 import { UserProvider } from './context/user.context';
+import Transcript from './component/Transcript/Transcript';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/transcript" element={<Transcript />} />
 
           <Route path="/projects" element={
             // <Userauth>

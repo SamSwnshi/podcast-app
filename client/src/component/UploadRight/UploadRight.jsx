@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import cloudUpload from '../../assets/cloud_upload.png';
 import feed from "../../assets/image 1.png";
 import youtube from "../../assets/image 2.png";
@@ -8,6 +9,9 @@ import logout from "../../assets/logout-box-r-line.png";
 import notification from "../../assets/notification-line.png";
 import home from "../../assets/home.png";
 import uploadRight from "./UploadRight.module.css";
+import api from '../../config/api';
+import { useNavigate } from 'react-router-dom';
+
 
 const UploadRight = () => {
     const data = [
@@ -15,29 +19,55 @@ const UploadRight = () => {
             heading: "RSS Feed",
             subheading: "Lorem ipsum dolor sit amet.",
             image: feed,
-
         },
         {
             heading: "Youtube Video",
             subheading: "Lorem ipsum dolor sit amet.",
             image: youtube,
-
         },
         {
             heading: "Upload files",
             subheading: "Lorem ipsum dolor sit amet.",
             image: update,
-
         },
-    ]
+    ];
+    const navigate = useNavigate();
+
     const [modal, setModal] = useState(false);
+    const [formData, setFormData] = useState({ name: '', transcript: '' });
 
     const handleModal = () => {
         setModal(!modal);
+    };
+
+    const handleUpload = async () => {
+        try {
+            const response = await api.post('/api/youtube/create', formData);
+            console.log('Upload successful:', response.data);
+            alert('Upload successful!');
+            handleModal(); 
+        } catch (error) {
+            console.error('Upload failed:', error);
+            alert('Upload failed. Please try again.');
+        }
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const handleLogout = async()=>{
+        try{
+             await api.post("/api/logout")
+             localStorage.removeItem('token');
+             navigate("/")
+        }catch(error){
+            console.error('Logout failed:', error);
+            alert('Logout failed. Please try again.');
+        }
     }
-    const handleUpload = () => {
-        setModal(!modal)
-    }
+
     return (
         <div>
             <div className={uploadRight.right}>
@@ -49,7 +79,7 @@ const UploadRight = () => {
                         </div>
                         <div className={uploadRight.groupIcon}>
                             <img src={notification} alt="notification" className={uploadRight.notification} />
-                            <img src={logout} alt="logout" className={uploadRight.notification} />
+                            <img src={logout} alt="logout" className={uploadRight.notification} onClick={handleLogout} />
                         </div>
                     </div>
                     <h1 className={uploadRight.addPodcast}>Add Podcast</h1>
@@ -60,8 +90,7 @@ const UploadRight = () => {
                                     <h1 className={uploadRight.heading}>{items.heading}</h1>
                                     <p className={uploadRight.subheading}>{items.subheading}</p>
                                 </div>
-
-                                <img src={items.image} alt={items.heading} className={uploadRight.icons} />
+                                <img src={items.image} alt={items.heading} className={uploadRight.icons} onClick={handleModal} />
                             </div>
                         ))}
                     </div>
@@ -81,17 +110,28 @@ const UploadRight = () => {
                                 <img src={youtube} alt="Youtube Icon" className={uploadRight.youtube} />
                                 <h1 className={uploadRight.headerHeading}>Upload from Youtube</h1>
                             </div>
-                            <div onClick={handleModal} className={uploadRight}>
+                            <div onClick={handleModal} className={uploadRight.crossContainer}>
                                 <img src={cross} alt="cross" className={uploadRight.cross} />
                             </div>
                         </div>
                         <div className={uploadRight.formInput}>
                             <label className={uploadRight.name}>Name</label>
-                            <input type="text" className={uploadRight.inputTag} />
+                            <input
+                                type="text"
+                                className={uploadRight.inputTag}
+                                name="name"
+                                value={formData.name}
+                                onChange={handleChange}
+                            />
                         </div>
                         <div className={uploadRight.formInput}>
                             <label className={uploadRight.name}>Transcript</label>
-                            <textarea type="text" className={uploadRight.inputTextarea} />
+                            <textarea
+                                className={uploadRight.inputTextarea}
+                                name="transcript"
+                                value={formData.transcript}
+                                onChange={handleChange}
+                            />
                         </div>
                         <div className={uploadRight.uploadDiv}>
                             <button className={uploadRight.uploadButton} onClick={handleUpload}>Upload</button>
@@ -100,7 +140,7 @@ const UploadRight = () => {
                 </div>
             )}
         </div>
-    )
-}
+    );
+};
 
-export default UploadRight
+export default UploadRight;

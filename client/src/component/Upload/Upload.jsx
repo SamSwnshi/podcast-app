@@ -8,10 +8,12 @@ import pencil from "../../assets/pencil-line.png";
 import setting from "../../assets/settings-2-line.png";
 import profile from "../../assets/profile.png"
 import UploadRight from '../UploadRight/UploadRight';
+import Transcript from '../Transcript/Transcript';
 const Upload = () => {
-   
+
     return (
         <div className={upload.mainContainer}>
+
             <div className={upload.left}>
                 <div>
                     <div className={upload.leftImageDiv}>
@@ -28,9 +30,9 @@ const Upload = () => {
                 <hr />
                 <div className={upload.leftDownDiv}>
                     <div className={upload.leftHelp}>
-                        <img src={setting} alt="Help" className={upload.leftIconsData}/> Help
+                        <img src={setting} alt="Help" className={upload.leftIconsData} /> Help
                     </div>
-                    <hr className={upload.hrline}/>
+                    <hr className={upload.hrline} />
                     <div className={upload.settingContainer}>
                         <div><img src={profile} alt="Profile" /></div>
                         <div>
@@ -40,7 +42,11 @@ const Upload = () => {
                     </div>
                 </div>
             </div>
-            <UploadRight/>
+            <div>
+                
+            <UploadRight />
+            <Transcript />
+            </div>
         </div>
     )
 }

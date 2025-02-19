@@ -26,6 +26,8 @@ const Home = () => {
         try {
             const response = await api.post("/api/login", { email, password });
             localStorage.setItem("token", response.data.token);
+            console.log('Login successful:', response.data);
+            alert('Login successful!');
             setUser(response.data.user);
             navigate("/projects");
         } catch (error) {
