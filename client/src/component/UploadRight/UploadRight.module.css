@@ -1,5 +1,4 @@
 .right {
-/* border: 1px solid red; */
   font-family: Roboto;
   background: #f1f0f0;
   padding: 55px;
@@ -48,7 +47,6 @@
 }
 .divs {
   background: #ffffff;
-  /* border: 1px solid gray; */
   border-radius: 8.11px;
   display: flex;
   align-items: center;
@@ -74,7 +72,6 @@
   font-size: 32px;
   line-height: 45.9px;
   letter-spacing: 0.23px;
-  /* margin-top: 2px; */
   margin-bottom: -25px;
 }
 .subheading {
@@ -147,7 +144,6 @@
 }
 .modalContent {
   width: 1257px;
-  /* height: 658px; */
   background: #ffffff;
   border-radius: 19.41px;
   padding: 50px;
@@ -244,11 +240,6 @@
   letter-spacing: 0.18px;
   color: #7e22ce;
 }
-/* Existing styles remain unchanged */
-
-/* Media Queries for Responsiveness */
-
-/* Tablets */
 @media (max-width: 1200px) {
   .right {
     padding: 30px;
@@ -269,7 +260,6 @@
     width: 100%;
     height: 160px;
     display: flex;
-    /* flex-direction: column; */
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
@@ -331,7 +321,6 @@
   }
 }
 
-/* Mobile devices */
 @media (max-width: 768px) {
   .right {
     padding: 20px;
@@ -339,7 +328,6 @@
 
   .dataMap {
     display: flex;
-    /* flex-direction: column; */
     align-items: center;
   }
   
@@ -347,7 +335,6 @@
     display: flex;
     width: 90%;
     height: auto;
-    /* flex-direction: column; */
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;

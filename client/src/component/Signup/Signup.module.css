@@ -1,4 +1,4 @@
-/* Centering the entire form on the screen */
+
 .container {
     display: flex;
     justify-content: center;
@@ -8,7 +8,6 @@
     background: #f5f5f5; 
 }
 
-/* Styling for the form container */
 .right {
     display: flex;
     flex-direction: column;
@@ -22,14 +21,14 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Logo styling */
+
 .image2 {
     width: 100px;
     height: auto;
     margin-bottom: 1rem;
 }
 
-/* Welcome text styling */
+
 .intro {
     font-size: 1.5rem;
     font-weight: bold;
@@ -41,7 +40,7 @@
     color: #7e22ce;
 }
 
-/* Form styling */
+
 .formData {
     display: flex;
     flex-direction: column;
@@ -57,7 +56,7 @@
     font-size: 1rem;
 }
 
-/* Checkbox and Forgot Password */
+
 .inputCheckboxDiv {
     display: flex;
     justify-content: space-between;
@@ -77,8 +76,6 @@
     color: #7e22ce;
     cursor: pointer;
 }
-
-/* Button Styling */
 .button {
     background-color: #7e22ce;
     color: white;
@@ -100,7 +97,7 @@
     cursor: not-allowed;
 }
 
-/* Loader animation */
+
 .loader {
     width: 18px;
     height: 18px;
@@ -119,7 +116,7 @@
     background-color: #357abd;
 }
 
-/* Account creation link */
+
 .noAccount {
     text-align: center;
     margin-top: 10px;

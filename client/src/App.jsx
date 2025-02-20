@@ -19,16 +19,12 @@ function App() {
           <Route path="/transcript" element={<Transcript />} />
 
           <Route path="/projects" element={
-            // <Userauth>
-            //   <Project />
-            // </Userauth>
-            <Project/>
+            <Userauth>
+              <Project />
+            </Userauth>
           } />
           <Route path="/upload" element={
-            // <Userauth>
-            //   <Upload />
-            // </Userauth>
-            <Upload/>
+            <Upload />
           } />
         </Routes>
       </Router>

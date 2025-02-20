@@ -9,7 +9,7 @@ const Signup = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
-    const [loading, setLoading] = useState(false); // Loading state
+    const [loading, setLoading] = useState(false); 
 
     const { setUser } = useContext(UserContext);
     const navigate = useNavigate();
@@ -23,7 +23,7 @@ const Signup = () => {
             return;
         }
 
-        setLoading(true); // Start loading
+        setLoading(true); 
         try {
             const response = await api.post("/api/register", { email, password });
             localStorage.setItem("token", response.data.token);
@@ -33,7 +33,7 @@ const Signup = () => {
             console.error("Registration error:", error.response?.data || error.message);
             setError(error.response?.data?.message || "Invalid email or password. Please try again.");
         } finally {
-            setLoading(false); // Stop loading
+            setLoading(false); 
         }
     };
 

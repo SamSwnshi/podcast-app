@@ -52,10 +52,6 @@ const UploadRight = () => {
         }
     };
 
-    const handleRoute = () =>{
-        navigate("/transcript")
-    }
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });

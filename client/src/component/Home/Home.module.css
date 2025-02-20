@@ -248,7 +248,6 @@ letter-spacing: 0%;
   }
 }
 
-/* Mobile devices */
 @media (max-width: 768px) {
   .mainContainer {
     width: 100%;
@@ -331,7 +330,7 @@ letter-spacing: 0%;
   
 }
 
-/* Extra small devices */
+
 @media (max-width: 480px) {
   .details {
     font-size: 32px;
