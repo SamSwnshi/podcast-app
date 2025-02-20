@@ -17,7 +17,7 @@ const UploadLeft = () => {
                         <img src={icnos} alt="icon" className={uploadLeft.leftIcon} />
                     </div>
                     <div className={uploadLeft.leftContent}>
-                        <div className={uploadLeft.leftData}><img src={add} alt="Plus" className={uploadLeft.leftIconsData} />Add your Podcast(s)</div>
+                        <div className={uploadLeft.leftData}><img src={add} alt="Plus" className={uploadLeft.leftIconsData} />Add your Podcast (s)</div>
                         <div className={uploadLeft.leftData}><img src={pencil} alt="Create" className={uploadLeft.leftIconsData} />Create & Repurpose</div>
                         <div className={uploadLeft.leftData}><img src={widget} alt="Widget" className={uploadLeft.leftIconsData} />Podcast Widget</div>
                         <div className={uploadLeft.leftData}><img src={diamond} alt="Upgrade" className={uploadLeft.leftIconsData} />Upgrade</div>

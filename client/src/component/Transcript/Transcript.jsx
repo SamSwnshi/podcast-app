@@ -48,6 +48,9 @@ const Transcript = () => {
             alert('Logout failed. Please try again.');
         }
     };
+    const previousHandle = () =>{
+        navigate("/upload")
+    }
 
     return (
         <div className={styles.container}>
@@ -65,7 +68,7 @@ const Transcript = () => {
                     </div>
                 </div>
                 <div className={styles.header}>
-                    <h2 className={styles.headerTitle}><img src={arrow} alt="arrow" className={styles.arrowIcon} />Edit Transcript</h2>
+                    <h2 className={styles.headerTitle}><img src={arrow} alt="arrow" className={styles.arrowIcon} onClick={previousHandle} />Edit Transcript</h2>
                     <div className={styles.headerButtons}>
                         {isEditing ? (
                             <>

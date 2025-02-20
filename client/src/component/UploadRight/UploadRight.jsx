@@ -9,7 +9,7 @@ import home from "../../assets/home.png";
 import notification from "../../assets/notification-line.png";
 import uploadRight from "./UploadRight.module.css";
 import api from '../../config/api';
-import { useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 
 const UploadRight = () => {
     const data = [
@@ -51,6 +51,10 @@ const UploadRight = () => {
             alert('Upload failed. Please try again.');
         }
     };
+
+    const handleRoute = () =>{
+        navigate("/transcript")
+    }
 
     const handleChange = (e) => {
         const { name, value } = e.target;
