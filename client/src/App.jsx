@@ -5,7 +5,7 @@ import Project from './component/Project/Project'
 import Signup from './component/Signup/Signup';
 import Upload from './component/Upload/Upload';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import Userauth from './auth/Userauth';
+import Userauth from "./auth/UserAuth"
 import { UserProvider } from './context/user.context';
 import Transcript from './component/Transcript/Transcript';
 
