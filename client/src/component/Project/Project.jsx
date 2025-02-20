@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import project from "./Project.module.css";
 import logo from "../../assets/colorlogo.png";
 import notification from "../../assets/notifications.png";
-
-import setting from "../../assets/icon.png";
-
+import setting from "../../assets/setting.png";
 import plus from "../../assets/plus.png";
 import group from "../../assets/Group 16.png";
 import api from "../../config/api";
