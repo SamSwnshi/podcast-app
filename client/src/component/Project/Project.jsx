@@ -6,6 +6,7 @@ import setting from "../../assets/icon.png";
 import plus from "../../assets/plus.png";
 import group from "../../assets/Group 16.png";
 import api from "../../config/api";
+import { useNavigate } from 'react-router-dom';
 
 const Project = () => {
     const [modal, setModal] = useState(false);
@@ -16,6 +17,7 @@ const Project = () => {
     const [projects, setProjects] = useState([]);
     const [projectCount, setProjectCount] = useState(0);
     const [showProjects, setShowProjects] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchProjects();
@@ -24,6 +26,7 @@ const Project = () => {
     const fetchProjects = async () => {
         try {
             const response = await api.get("/api/projects/all");
+            alert("fetched all project list")
             setProjects(response.data);
             setProjectCount(response.data.length);
         } catch (error) {
@@ -64,6 +67,9 @@ const Project = () => {
         }
     };
     
+    const routeToUpload = async() =>{
+        navigate("/upload")
+    }
 
     return (
         <div className={project.container}>
@@ -77,7 +83,7 @@ const Project = () => {
                 </div>
             </div>
             {showProjects ? (
-                <div className={project.projectsSection}>
+                <div className={project.projectsSection} onClick={routeToUpload}>
                     <div className={project.projectsHeader}>
                         <h1>Projects</h1>
                         <button className={project.buttonTag} onClick={handleModal}>
