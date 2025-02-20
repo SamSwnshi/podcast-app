@@ -26,7 +26,7 @@ const Project = () => {
     const fetchProjects = async () => {
         try {
             const response = await api.get("/api/projects/all");
-            alert("fetched all project list")
+            // alert("fetched all project list")
             setProjects(response.data);
             setProjectCount(response.data.length);
         } catch (error) {
